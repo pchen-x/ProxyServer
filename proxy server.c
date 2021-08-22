@@ -1,10 +1,4 @@
-//
-//  problem3.c
-//  ECE4436A - Assignment 1 - Problem 3
-//
-//  Created by Gareth Cross on 2012-10-04.
-//  Copyright (c) 2012 Gareth Cross. MIT License.
-//
+
 
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -209,7 +203,7 @@ int main(int argc, const char * argv[])
         pthread_attr_init(&attributes);
         int status = pthread_create(&state->thread, &attributes, request_handler, state); pthread_attr_destroy(&attributes);
         
-        //  Ïß³Ì³öÏÖ¹ÊÕÏ£¬¿Í»§¶ËÍË³ö 
+        //  çº¿ç¨‹å‡ºçŽ°æ•…éšœï¼Œå®¢æˆ·ç«¯é€€å‡º 
         if (status != 0)
         {
             printf("Failed to create handler thread, dropping client\n");
@@ -217,7 +211,7 @@ int main(int argc, const char * argv[])
             continue;
         }
         
-        //  Ïß³ÌÊ¹ÓÃµÄ¶ÑÕ»»áÔÚÏß³ÌÍË³öÊ±Ïú»Ù£¬¹Ê´Ë´¦²»ÄÜÓÃpthread_join 
+        //  çº¿ç¨‹ä½¿ç”¨çš„å †æ ˆä¼šåœ¨çº¿ç¨‹é€€å‡ºæ—¶é”€æ¯ï¼Œæ•…æ­¤å¤„ä¸èƒ½ç”¨pthread_join 
         pthread_detach(state->thread);
     }
     
